@@ -14,7 +14,7 @@ function hasCycle(head: ListNode | null): boolean {
             return false;
         }
         l1 = l1.next
-        l2 = l2.next.next;
+        l2 = l2.next.next!;
     }
     return true
 }

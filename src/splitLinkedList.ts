@@ -5,4 +5,28 @@
  *
  *
  */
+import {ListNode} from "./linkListPublic";
 
+function partition(head: ListNode | null, x: number): ListNode | null {
+    const small = []
+    const big = []
+    let dummy = new ListNode()
+    let res = dummy
+    while (head) {
+        if (head.val < x) {
+            small.push(head)
+        } else {
+            big.push(head)
+        }
+        head = head.next
+    }
+    for (let x of small) {
+        res.next = new ListNode(x.val)
+        res = res.next
+    }
+    for (let x of big) {
+        res.next = new ListNode(x.val)
+        res = res.next
+    }
+    return dummy.next
+}
